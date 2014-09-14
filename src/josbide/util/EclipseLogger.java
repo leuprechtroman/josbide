@@ -30,7 +30,7 @@ public class EclipseLogger {
 		return EclipseLogger.instance;
 	}
 	
-	public synchronized void logError(Object who, String msg){
+	public synchronized void log(Object who, String msg){
 		String toPrint = who.getClass().getCanonicalName() +" : " + msg;
 		console.newMessageStream().println(toPrint);
 	}

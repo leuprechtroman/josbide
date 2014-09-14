@@ -33,10 +33,10 @@ public class OsbideCryptoHelper {
 			
 		}
 		catch(NoSuchAlgorithmException e){
-			EclipseLogger.getInstance().logError(OsbideCryptoHelper.class, "Hashing failed: Invalid specified algorithm");
+			EclipseLogger.getInstance().log(OsbideCryptoHelper.class, "Hashing failed: Invalid specified algorithm");
 		}
 		catch(IOException e){
-			EclipseLogger.getInstance().logError(OsbideCryptoHelper.class, "Hashing failed: An I/O Error occured while converting charsets");
+			EclipseLogger.getInstance().log(OsbideCryptoHelper.class, "Hashing failed: An I/O Error occured while converting charsets");
 		}
 		
 		return digest;
