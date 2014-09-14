@@ -1,11 +1,11 @@
-package josbide.soap;
+package josbide.wcf.soap;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
-import josbide.soap.operations.OsbideOperation;
+import josbide.wcf.soap.operations.OsbideOperation;
 
 import org.reficio.ws.builder.SoapBuilder;
 import org.reficio.ws.client.core.SoapClient;

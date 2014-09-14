@@ -1,4 +1,4 @@
-package josbide.soap;
+package josbide.wcf.soap;
 
 import java.io.StringReader;
 import java.io.StringWriter;

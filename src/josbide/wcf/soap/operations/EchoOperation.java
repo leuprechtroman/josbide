@@ -1,4 +1,4 @@
-package josbide.soap.operations;
+package josbide.wcf.soap.operations;
 
 public class EchoOperation extends OsbideOperation {
 

@@ -1,4 +1,4 @@
-package josbide.soap.operations;
+package josbide.wcf.soap.operations;
 
 public class GetMostRecentWhatsNewItemOperation extends OsbideOperation {
 

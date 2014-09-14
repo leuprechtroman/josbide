@@ -1,4 +1,4 @@
-package josbide.soap;
+package josbide.wcf.soap;
 
 public class SoapParameter {
 
