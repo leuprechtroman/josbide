@@ -1,9 +1,9 @@
-package soap.operations;
+package josbide.soap.operations;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import soap.SoapParameter;
+import josbide.soap.SoapParameter;
 
 public abstract class OsbideOperation {
 

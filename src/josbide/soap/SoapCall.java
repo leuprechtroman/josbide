@@ -1,14 +1,14 @@
-package soap;
+package josbide.soap;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
+import josbide.soap.operations.OsbideOperation;
+
 import org.reficio.ws.builder.SoapBuilder;
 import org.reficio.ws.client.core.SoapClient;
-
-import soap.operations.OsbideOperation;
 
 public class SoapCall implements Callable<List<SoapParameter>> {
 

@@ -1,4 +1,4 @@
-package soap.operations;
+package josbide.soap.operations;
 
 public class IsValidKeyOperation extends OsbideOperation {
 

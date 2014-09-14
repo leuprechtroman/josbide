@@ -1,4 +1,4 @@
-package soap;
+package josbide.soap;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -8,11 +8,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import josbide.soap.operations.OsbideOperation;
+
 import org.reficio.ws.SoapContext;
 import org.reficio.ws.builder.SoapBuilder;
 import org.reficio.ws.builder.core.Wsdl;
-
-import soap.operations.OsbideOperation;
 
 public class EasyClient {
 

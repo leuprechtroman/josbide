@@ -1,4 +1,4 @@
-package soap;
+package josbide.soap;
 
 public class SoapParameter {
 

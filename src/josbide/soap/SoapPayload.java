@@ -1,4 +1,4 @@
-package soap;
+package josbide.soap;
 
 import java.io.StringReader;
 import java.io.StringWriter;
