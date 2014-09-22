@@ -2,7 +2,7 @@ package josbide.data;
 
 import josbide.data.events.BuildEvent;
 
-public class Error {
+public class ErrorListItem {
 	
 	private String errorName;
 	private int column;

@@ -6,83 +6,96 @@ import josbide.data.user.Course;
 
 public class Assignment {
 	
-	private int id;
-	private Course course;
-	private String name;
-	private boolean isDeleted;
-	private Date releaseDate;
-	private Date dueDate;
-	
+	private int Id;
+	private Course Course;
+	private int CourseId;
+	private String Name;
+	private boolean IsDeleted;
+	private Date ReleaseDate;
+	private Date DueDate;
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
+		return Id;
 	}
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		this.id = id;
+		Id = id;
 	}
 	/**
 	 * @return the course
 	 */
 	public Course getCourse() {
-		return course;
+		return Course;
 	}
 	/**
 	 * @param course the course to set
 	 */
 	public void setCourse(Course course) {
-		this.course = course;
+		Course = course;
+	}
+	/**
+	 * @return the courseId
+	 */
+	public int getCourseId() {
+		return CourseId;
+	}
+	/**
+	 * @param courseId the courseId to set
+	 */
+	public void setCourseId(int courseId) {
+		CourseId = courseId;
 	}
 	/**
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return Name;
 	}
 	/**
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
-		this.name = name;
+		Name = name;
 	}
 	/**
 	 * @return the isDeleted
 	 */
-	public boolean isDeleted() {
-		return isDeleted;
+	public boolean isIsDeleted() {
+		return IsDeleted;
 	}
 	/**
 	 * @param isDeleted the isDeleted to set
 	 */
-	public void setDeleted(boolean isDeleted) {
-		this.isDeleted = isDeleted;
+	public void setIsDeleted(boolean isDeleted) {
+		IsDeleted = isDeleted;
 	}
 	/**
 	 * @return the releaseDate
 	 */
 	public Date getReleaseDate() {
-		return releaseDate;
+		return ReleaseDate;
 	}
 	/**
 	 * @param releaseDate the releaseDate to set
 	 */
 	public void setReleaseDate(Date releaseDate) {
-		this.releaseDate = releaseDate;
+		ReleaseDate = releaseDate;
 	}
 	/**
 	 * @return the dueDate
 	 */
 	public Date getDueDate() {
-		return dueDate;
+		return DueDate;
 	}
 	/**
 	 * @param dueDate the dueDate to set
 	 */
 	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
+		DueDate = dueDate;
 	}
+	
 }

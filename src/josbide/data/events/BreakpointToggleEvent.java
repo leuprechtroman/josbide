@@ -1,22 +1,22 @@
 package josbide.data.events;
 
-import josbide.data.Breakpoint;
+import josbide.data.BreakPoint;
 
 public class BreakpointToggleEvent extends OsbideEvent {
 	
-	private Breakpoint breakpoint;
+	private BreakPoint breakpoint;
 
 	/**
 	 * @return the breakpoint
 	 */
-	public Breakpoint getBreakpoint() {
+	public BreakPoint getBreakpoint() {
 		return breakpoint;
 	}
 
 	/**
 	 * @param breakpoint the breakpoint to set
 	 */
-	public void setBreakpoint(Breakpoint breakpoint) {
+	public void setBreakpoint(BreakPoint breakpoint) {
 		this.breakpoint = breakpoint;
 	}
 }

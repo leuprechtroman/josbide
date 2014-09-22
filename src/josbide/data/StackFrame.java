@@ -5,88 +5,88 @@ import java.util.List;
 import josbide.data.events.ExceptionEvent;
 
 public class StackFrame {
-	private int depth;
-	private ExceptionEvent exception;
-	private String fileName;
-	private String functionName;
-	private String language;
-	private int lineNumber;
+	private int Depth;
+	private ExceptionEvent Exception;
+	private String FileName;
+	private String FunctionName;
+	private String Language;
+	private int LineNumber;
 	private String Module; //In java: Package!
-	private String returnType;
-	private List<StackVariable> variables;
+	private String ReturnType;
+	private List<StackFrameVariable> Variables;
 	
 	
 	/**
 	 * @return the depth
 	 */
 	public int getDepth() {
-		return depth;
+		return Depth;
 	}
 	/**
 	 * @param depth the depth to set
 	 */
 	public void setDepth(int depth) {
-		this.depth = depth;
+		this.Depth = depth;
 	}
 	/**
 	 * @return the exception
 	 */
 	public ExceptionEvent getException() {
-		return exception;
+		return Exception;
 	}
 	/**
 	 * @param exception the exception to set
 	 */
 	public void setException(ExceptionEvent exception) {
-		this.exception = exception;
+		this.Exception = exception;
 	}
 	/**
 	 * @return the fileName
 	 */
 	public String getFileName() {
-		return fileName;
+		return FileName;
 	}
 	/**
 	 * @param fileName the fileName to set
 	 */
 	public void setFileName(String fileName) {
-		this.fileName = fileName;
+		this.FileName = fileName;
 	}
 	/**
 	 * @return the functionName
 	 */
 	public String getFunctionName() {
-		return functionName;
+		return FunctionName;
 	}
 	/**
 	 * @param functionName the functionName to set
 	 */
 	public void setFunctionName(String functionName) {
-		this.functionName = functionName;
+		this.FunctionName = functionName;
 	}
 	/**
 	 * @return the language
 	 */
 	public String getLanguage() {
-		return language;
+		return Language;
 	}
 	/**
 	 * @param language the language to set
 	 */
 	public void setLanguage(String language) {
-		this.language = language;
+		this.Language = language;
 	}
 	/**
 	 * @return the lineNumber
 	 */
 	public int getLineNumber() {
-		return lineNumber;
+		return LineNumber;
 	}
 	/**
 	 * @param lineNumber the lineNumber to set
 	 */
 	public void setLineNumber(int lineNumber) {
-		this.lineNumber = lineNumber;
+		this.LineNumber = lineNumber;
 	}
 	/**
 	 * @return the module
@@ -104,24 +104,24 @@ public class StackFrame {
 	 * @return the returnType
 	 */
 	public String getReturnType() {
-		return returnType;
+		return ReturnType;
 	}
 	/**
 	 * @param returnType the returnType to set
 	 */
 	public void setReturnType(String returnType) {
-		this.returnType = returnType;
+		this.ReturnType = returnType;
 	}
 	/**
 	 * @return the variables
 	 */
-	public List<StackVariable> getVariables() {
-		return variables;
+	public List<StackFrameVariable> getVariables() {
+		return Variables;
 	}
 	/**
 	 * @param variables the variables to set
 	 */
-	public void setVariables(List<StackVariable> variables) {
-		this.variables = variables;
+	public void setVariables(List<StackFrameVariable> variables) {
+		this.Variables = variables;
 	}
 }

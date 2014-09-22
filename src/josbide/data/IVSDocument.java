@@ -1,58 +1,47 @@
 package josbide.data;
 
-public class Document {
+public class IVSDocument {
 	
-	private int id;
-	private String fileName;
-	private String content;
+	private int Id;
+	private String FileName;
+	private String Content;
 	
-	/**
-	 * @param id
-	 * @param fileName
-	 * @param content
-	 */
-	public Document(int id, String fileName, String content) {
-		this.id = id;
-		this.fileName = fileName;
-		this.content = content;
-	}
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
+		return Id;
 	}
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		this.id = id;
+		Id = id;
 	}
 	/**
 	 * @return the fileName
 	 */
 	public String getFileName() {
-		return fileName;
+		return FileName;
 	}
 	/**
 	 * @param fileName the fileName to set
 	 */
 	public void setFileName(String fileName) {
-		this.fileName = fileName;
+		FileName = fileName;
 	}
 	/**
 	 * @return the content
 	 */
 	public String getContent() {
-		return content;
+		return Content;
 	}
 	/**
 	 * @param content the content to set
 	 */
 	public void setContent(String content) {
-		this.content = content;
+		Content = content;
 	}
-	
 	
 
 }
