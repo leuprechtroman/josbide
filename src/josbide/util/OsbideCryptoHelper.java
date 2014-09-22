@@ -11,14 +11,19 @@ import josbide.data.user.OsbideUser;
 
 public class OsbideCryptoHelper {
 	
+	public static String hashPassword(String password, String usermail)
+	{
+		byte[] hashBytes = OsbideCryptoHelper._hashPassword(password, usermail);
+		return Base64.getEncoder().encodeToString(hashBytes);
+	}
 	public static String hashPassword(String password, OsbideUser user)
 	{
 		//We hash via user email
-		byte[] hashBytes = OsbideCryptoHelper.hashPassword(password, user.getEmail());
+		byte[] hashBytes = OsbideCryptoHelper._hashPassword(password, user.getEmail());
 		return Base64.getEncoder().encodeToString(hashBytes);
 	}
 	
-	private static byte[] hashPassword(String password, String hash){
+	private static byte[] _hashPassword(String password, String hash){
 		byte[] digest = new byte[0];
 		try{
 			//Create bytestream to concatenate both:
