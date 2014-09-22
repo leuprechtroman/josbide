@@ -4,44 +4,70 @@ import josbide.data.Assignment;
 
 public class SubmitEvent extends OsbideEvent {
 	
-	private Assignment assignment;
-	private String name;
-	private byte[] solutionData;
+	private Assignment Assignment;
+	private int AssignmentId;
+	private String Name;
+	private byte[] SolutionData;
+	private String SolutionName;
 	
 	/**
 	 * @return the assignment
 	 */
 	public Assignment getAssignment() {
-		return assignment;
+		return Assignment;
 	}
 	/**
 	 * @param assignment the assignment to set
 	 */
 	public void setAssignment(Assignment assignment) {
-		this.assignment = assignment;
+		this.Assignment = assignment;
 	}
 	/**
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return Name;
 	}
 	/**
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
-		this.name = name;
+		this.Name = name;
 	}
 	/**
 	 * @return the solutionData
 	 */
 	public byte[] getSolutionData() {
-		return solutionData;
+		return SolutionData;
 	}
 	/**
 	 * @param solutionData the solutionData to set
 	 */
 	public void setSolutionData(byte[] solutionData) {
-		this.solutionData = solutionData;
+		this.SolutionData = solutionData;
+	}
+	/**
+	 * @return the assignmentId
+	 */
+	public int getAssignmentId() {
+		return AssignmentId;
+	}
+	/**
+	 * @param assignmentId the assignmentId to set
+	 */
+	public void setAssignmentId(int assignmentId) {
+		AssignmentId = assignmentId;
+	}
+	/**
+	 * @return the solutionName
+	 */
+	public String getSolutionName() {
+		return SolutionName;
+	}
+	/**
+	 * @param solutionName the solutionName to set
+	 */
+	public void setSolutionName(String solutionName) {
+		SolutionName = solutionName;
 	}
 }

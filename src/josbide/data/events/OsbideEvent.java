@@ -4,98 +4,98 @@ import java.util.Date;
 
 public class OsbideEvent {
 	
-	private int id;
-	private int eventLogId;
-	private EventLog eventLog;
-	private Date eventDate;
-	private String solutionName;
-	private String eventName;
-	private String prettyName;
+	private int Id;
+	private int EventLogId;
+	private EventLog EventLog;
+	private Date EventDate;
+	private String SolutionName;
+	private String EventName;
+	private String PrettyName;
 	
 	
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
+		return Id;
 	}
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		this.id = id;
+		this.Id = id;
 	}
 	/**
 	 * @return the eventLogId
 	 */
 	public int getEventLogId() {
-		return eventLogId;
+		return EventLogId;
 	}
 	/**
 	 * @param eventLogId the eventLogId to set
 	 */
 	public void setEventLogId(int eventLogId) {
-		this.eventLogId = eventLogId;
+		this.EventLogId = eventLogId;
 	}
 	/**
 	 * @return the eventLog
 	 */
 	public EventLog getEventLog() {
-		return eventLog;
+		return EventLog;
 	}
 	/**
 	 * @param eventLog the eventLog to set
 	 */
 	public void setEventLog(EventLog eventLog) {
-		this.eventLog = eventLog;
+		this.EventLog = eventLog;
 	}
 	/**
 	 * @return the eventDate
 	 */
 	public Date getEventDate() {
-		return eventDate;
+		return EventDate;
 	}
 	/**
 	 * @param eventDate the eventDate to set
 	 */
 	public void setEventDate(Date eventDate) {
-		this.eventDate = eventDate;
+		this.EventDate = eventDate;
 	}
 	/**
 	 * @return the solutionName
 	 */
 	public String getSolutionName() {
-		return solutionName;
+		return SolutionName;
 	}
 	/**
 	 * @param solutionName the solutionName to set
 	 */
 	public void setSolutionName(String solutionName) {
-		this.solutionName = solutionName;
+		this.SolutionName = solutionName;
 	}
 	/**
 	 * @return the eventName
 	 */
 	public String getEventName() {
-		return eventName;
+		return EventName;
 	}
 	/**
 	 * @param eventName the eventName to set
 	 */
 	public void setEventName(String eventName) {
-		this.eventName = eventName;
+		this.EventName = eventName;
 	}
 	/**
 	 * @return the prettyName
 	 */
 	public String getPrettyName() {
-		return prettyName;
+		return PrettyName;
 	}
 	/**
 	 * @param prettyName the prettyName to set
 	 */
 	public void setPrettyName(String prettyName) {
-		this.prettyName = prettyName;
+		this.PrettyName = prettyName;
 	}
 
 }

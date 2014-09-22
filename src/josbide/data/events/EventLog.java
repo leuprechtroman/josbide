@@ -8,13 +8,13 @@ import josbide.data.user.OsbideUser;
 public class EventLog {
 	
 	private String AssemblyVersion;
-	private List<LogCommentEvent> comments;
-	private EventLogData data;
+	private List<LogCommentEvent> Comments;
+	private EventLogData Data;
 	private Date DataRecievedTimestamp;
-	private int id;
-	private String logType;
-	private OsbideUser sender;
-	private List<EventLogSuscription> suscriptions;
+	private int Id;
+	private String LogType;
+	private OsbideUser Sender;
+	private List<EventLogSuscription> Suscriptions;
 	/**
 	 * @return the assemblyVersion
 	 */
@@ -31,25 +31,25 @@ public class EventLog {
 	 * @return the comments
 	 */
 	public List<LogCommentEvent> getComments() {
-		return comments;
+		return Comments;
 	}
 	/**
 	 * @param comments the comments to set
 	 */
 	public void setComments(List<LogCommentEvent> comments) {
-		this.comments = comments;
+		this.Comments = comments;
 	}
 	/**
 	 * @return the data
 	 */
 	public EventLogData getData() {
-		return data;
+		return Data;
 	}
 	/**
 	 * @param data the data to set
 	 */
 	public void setData(EventLogData data) {
-		this.data = data;
+		this.Data = data;
 	}
 	/**
 	 * @return the dataRecievedTimestamp
@@ -67,48 +67,48 @@ public class EventLog {
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
+		return Id;
 	}
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		this.id = id;
+		this.Id = id;
 	}
 	/**
 	 * @return the logType
 	 */
 	public String getLogType() {
-		return logType;
+		return LogType;
 	}
 	/**
 	 * @param logType the logType to set
 	 */
 	public void setLogType(String logType) {
-		this.logType = logType;
+		this.LogType = logType;
 	}
 	/**
 	 * @return the sender
 	 */
 	public OsbideUser getSender() {
-		return sender;
+		return Sender;
 	}
 	/**
 	 * @param sender the sender to set
 	 */
 	public void setSender(OsbideUser sender) {
-		this.sender = sender;
+		this.Sender = sender;
 	}
 	/**
 	 * @return the suscriptions
 	 */
 	public List<EventLogSuscription> getSuscriptions() {
-		return suscriptions;
+		return Suscriptions;
 	}
 	/**
 	 * @param suscriptions the suscriptions to set
 	 */
 	public void setSuscriptions(List<EventLogSuscription> suscriptions) {
-		this.suscriptions = suscriptions;
+		this.Suscriptions = suscriptions;
 	}
 }

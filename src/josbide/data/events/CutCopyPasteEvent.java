@@ -4,57 +4,57 @@ import josbide.data.CutCopyPasteAction;
 
 public class CutCopyPasteEvent extends OsbideEvent {
 	
-	private CutCopyPasteAction action;
-	private String content;
-	private String documentName;
-	private String name;
+	private CutCopyPasteAction Action;
+	private String Content;
+	private String DocumentName;
+	private String Name;
 
 	/**
 	 * @return the action
 	 */
 	public CutCopyPasteAction getAction() {
-		return action;
+		return Action;
 	}
 	/**
 	 * @param action the action to set
 	 */
 	public void setAction(CutCopyPasteAction action) {
-		this.action = action;
+		this.Action = action;
 	}
 	/**
 	 * @return the content
 	 */
 	public String getContent() {
-		return content;
+		return Content;
 	}
 	/**
 	 * @param content the content to set
 	 */
 	public void setContent(String content) {
-		this.content = content;
+		this.Content = content;
 	}
 	/**
 	 * @return the documentName
 	 */
 	public String getDocumentName() {
-		return documentName;
+		return DocumentName;
 	}
 	/**
 	 * @param documentName the documentName to set
 	 */
 	public void setDocumentName(String documentName) {
-		this.documentName = documentName;
+		this.DocumentName = documentName;
 	}
 	/**
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return Name;
 	}
 	/**
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
-		this.name = name;
+		this.Name = name;
 	}
 }

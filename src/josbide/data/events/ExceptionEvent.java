@@ -2,14 +2,14 @@ package josbide.data.events;
 
 public class ExceptionEvent extends OsbideEvent {
 	
-	private String documentName;
-	private int exceptionAction;
-	private int exceptionCode;
-	private String exceptionDescription; //This will be set to e.getMessage()!
-	private String exceptionName;
-	private String exceptionType;
-	private String lineContent;
-	private int lineNumber;
+	private String DocumentName;
+	private int ExceptionAction;
+	private int ExceptionCode;
+	private String ExceptionDescription; //This will be set to e.getMessage()!
+	private String ExceptionName;
+	private String ExceptionType;
+	private String LineContent;
+	private int LineNumber;
 	private String Name;
 	
 	
@@ -17,97 +17,97 @@ public class ExceptionEvent extends OsbideEvent {
 	 * @return the documentName
 	 */
 	public String getDocumentName() {
-		return documentName;
+		return DocumentName;
 	}
 	/**
 	 * @param documentName the documentName to set
 	 */
 	public void setDocumentName(String documentName) {
-		this.documentName = documentName;
+		this.DocumentName = documentName;
 	}
 	/**
 	 * @return the exceptionAction
 	 */
 	public int getExceptionAction() {
-		return exceptionAction;
+		return ExceptionAction;
 	}
 	/**
 	 * @param exceptionAction the exceptionAction to set
 	 */
 	public void setExceptionAction(int exceptionAction) {
-		this.exceptionAction = exceptionAction;
+		this.ExceptionAction = exceptionAction;
 	}
 	/**
 	 * @return the exceptionCode
 	 */
 	public int getExceptionCode() {
-		return exceptionCode;
+		return ExceptionCode;
 	}
 	/**
 	 * @param exceptionCode the exceptionCode to set
 	 */
 	public void setExceptionCode(int exceptionCode) {
-		this.exceptionCode = exceptionCode;
+		this.ExceptionCode = exceptionCode;
 	}
 	/**
 	 * @return the exceptionDescription
 	 */
 	public String getExceptionDescription() {
-		return exceptionDescription;
+		return ExceptionDescription;
 	}
 	/**
 	 * @param exceptionDescription the exceptionDescription to set
 	 */
 	public void setExceptionDescription(String exceptionDescription) {
-		this.exceptionDescription = exceptionDescription;
+		this.ExceptionDescription = exceptionDescription;
 	}
 	/**
 	 * @return the exceptionName
 	 */
 	public String getExceptionName() {
-		return exceptionName;
+		return ExceptionName;
 	}
 	/**
 	 * @param exceptionName the exceptionName to set
 	 */
 	public void setExceptionName(String exceptionName) {
-		this.exceptionName = exceptionName;
+		this.ExceptionName = exceptionName;
 	}
 	/**
 	 * @return the exceptionType
 	 */
 	public String getExceptionType() {
-		return exceptionType;
+		return ExceptionType;
 	}
 	/**
 	 * @param exceptionType the exceptionType to set
 	 */
 	public void setExceptionType(String exceptionType) {
-		this.exceptionType = exceptionType;
+		this.ExceptionType = exceptionType;
 	}
 	/**
 	 * @return the lineContent
 	 */
 	public String getLineContent() {
-		return lineContent;
+		return LineContent;
 	}
 	/**
 	 * @param lineContent the lineContent to set
 	 */
 	public void setLineContent(String lineContent) {
-		this.lineContent = lineContent;
+		this.LineContent = lineContent;
 	}
 	/**
 	 * @return the lineNumber
 	 */
 	public int getLineNumber() {
-		return lineNumber;
+		return LineNumber;
 	}
 	/**
 	 * @param lineNumber the lineNumber to set
 	 */
 	public void setLineNumber(int lineNumber) {
-		this.lineNumber = lineNumber;
+		this.LineNumber = lineNumber;
 	}
 	/**
 	 * @return the name
