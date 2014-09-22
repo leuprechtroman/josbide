@@ -4,14 +4,18 @@ import java.util.Date;
 
 public class OsbideEvent {
 	
-	private int Id;
-	private int EventLogId;
-	private EventLog EventLog;
-	private Date EventDate;
-	private String SolutionName;
-	private String EventName;
-	private String PrettyName;
+	protected int Id;
+	protected int EventLogId;
+	protected EventLog EventLog;
+	protected Date EventDate;
+	protected String SolutionName;
+	protected final String EventName;
+	protected final String PrettyName;
 	
+	public OsbideEvent(String EventName, String PrettyName) {
+		this.EventName = EventName;
+		this.PrettyName = PrettyName;
+	}	
 	
 	/**
 	 * @return the id
@@ -80,22 +84,10 @@ public class OsbideEvent {
 		return EventName;
 	}
 	/**
-	 * @param eventName the eventName to set
-	 */
-	public void setEventName(String eventName) {
-		this.EventName = eventName;
-	}
-	/**
 	 * @return the prettyName
 	 */
 	public String getPrettyName() {
 		return PrettyName;
-	}
-	/**
-	 * @param prettyName the prettyName to set
-	 */
-	public void setPrettyName(String prettyName) {
-		this.PrettyName = prettyName;
 	}
 
 }

@@ -6,7 +6,12 @@ public class SaveEvent extends OsbideEvent {
 	
 	private CodeDocument Document;
 	private int DocumentId = 0;
-	private String Name;
+	private final String Name;
+	
+	public SaveEvent() {
+		super("SaveEvent", "Save");
+		this.Name = this.EventName;
+	}
 	
 	
 	/**
@@ -26,12 +31,6 @@ public class SaveEvent extends OsbideEvent {
 	 */
 	public String getName() {
 		return Name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.Name = name;
 	}
 	/**
 	 * @return the documentId

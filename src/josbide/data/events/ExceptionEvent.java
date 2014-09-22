@@ -10,7 +10,12 @@ public class ExceptionEvent extends OsbideEvent {
 	private String ExceptionType;
 	private String LineContent;
 	private int LineNumber;
-	private String Name;
+	private final String Name;
+	
+	public ExceptionEvent() {
+		super("ExceptionEvent", "Exception");
+		this.Name = this.EventName;
+	}
 	
 	
 	/**
@@ -114,12 +119,6 @@ public class ExceptionEvent extends OsbideEvent {
 	 */
 	public String getName() {
 		return Name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		Name = name;
 	}
 	
 }

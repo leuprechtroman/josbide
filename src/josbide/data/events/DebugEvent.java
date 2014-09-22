@@ -6,7 +6,13 @@ public class DebugEvent extends OsbideEvent {
 	private String DocumentName;
 	private int ExecutionAction;
 	private int LineNumber;
-	private String Name;
+	private final String Name;
+	
+	public DebugEvent() {
+		super("DebugEvent", "Debug");
+		this.Name = this.EventName;
+	}
+	
 	/**
 	 * @return the debugOutput
 	 */
@@ -60,11 +66,5 @@ public class DebugEvent extends OsbideEvent {
 	 */
 	public String getName() {
 		return Name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.Name = name;
 	}
 }

@@ -2,8 +2,13 @@ package josbide.data.events;
 
 public class FeedPostEvent extends OsbideEvent {
 	
-	private String Name;
+	private final String Name;
 	private String Comment;
+	
+	public FeedPostEvent() {
+		super("FeedPostEvent", "Feed Post");
+		this.Name = this.EventName;
+	}
 	
 	
 	/**
@@ -11,12 +16,6 @@ public class FeedPostEvent extends OsbideEvent {
 	 */
 	public String getName() {
 		return Name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.Name = name;
 	}
 	/**
 	 * @return the comment

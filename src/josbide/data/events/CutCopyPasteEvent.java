@@ -7,7 +7,12 @@ public class CutCopyPasteEvent extends OsbideEvent {
 	private CutCopyPasteAction Action;
 	private String Content;
 	private String DocumentName;
-	private String Name;
+	private final String Name;
+	
+	public CutCopyPasteEvent() {
+		super("CutCopyPasteEvent", "Cut, Copy & Paste");
+		this.Name = this.EventName;
+	}
 
 	/**
 	 * @return the action
@@ -50,11 +55,5 @@ public class CutCopyPasteEvent extends OsbideEvent {
 	 */
 	public String getName() {
 		return Name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.Name = name;
 	}
 }

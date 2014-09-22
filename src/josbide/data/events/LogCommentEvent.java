@@ -6,9 +6,14 @@ public class LogCommentEvent extends OsbideEvent {
 	
 	private String Content;
 	private List<HelpfulMarkGivenEvent> HelpfulMarks;
-	private String Name;
+	private final String Name;
 	private EventLog SourceEventLog;
 	private int SourceEventLogId = 0;
+	
+	public LogCommentEvent() {
+		super("LogCommentEvent", "Comment");
+		this.Name = this.EventName;
+	}
 	
 	/**
 	 * @return the content
@@ -39,12 +44,6 @@ public class LogCommentEvent extends OsbideEvent {
 	 */
 	public String getName() {
 		return Name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.Name = name;
 	}
 	/**
 	 * @return the source

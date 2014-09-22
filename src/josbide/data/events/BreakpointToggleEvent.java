@@ -5,6 +5,10 @@ import josbide.data.BreakPoint;
 public class BreakpointToggleEvent extends OsbideEvent {
 	
 	private BreakPoint Breakpoint;
+	
+	public BreakpointToggleEvent(){
+		super("BreakpointToggleEvent","Breakpoint Toggle");
+	}
 
 	/**
 	 * @return the breakpoint

@@ -2,9 +2,14 @@ package josbide.data.events;
 
 public class HelpfulMarkGivenEvent extends OsbideEvent {
 	
-	private String Name;
+	private final String Name;
 	private LogCommentEvent LogComment;
 	private int LogCommentId;
+	
+	public HelpfulMarkGivenEvent() {
+		super("HelpfulMarkGivenEvent", "Helpful Mark");
+		this.Name = this.EventName;
+	}
 	
 	
 	/**
@@ -12,12 +17,6 @@ public class HelpfulMarkGivenEvent extends OsbideEvent {
 	 */
 	public String getName() {
 		return Name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.Name = name;
 	}
 	/**
 	 * @return the logComment

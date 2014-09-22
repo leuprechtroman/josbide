@@ -16,6 +16,10 @@ public class BuildEvent extends OsbideEvent {
 	private List<BuildEventErrorListItem> ErrorItems;
 	private String[] AllowedExtensions = new String[0];
 	
+	public BuildEvent() {
+		super("BuildEvent", "Build");
+	}	
+	
 	
 	/**
 	 * @return the breakpoints

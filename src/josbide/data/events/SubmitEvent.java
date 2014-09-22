@@ -6,9 +6,14 @@ public class SubmitEvent extends OsbideEvent {
 	
 	private Assignment Assignment;
 	private int AssignmentId;
-	private String Name;
+	private final String Name;
 	private byte[] SolutionData;
 	private String SolutionName;
+	
+	public SubmitEvent() {
+		super("SubmitEvent", "Submit Assignment");
+		this.Name = this.EventName;
+	}
 	
 	/**
 	 * @return the assignment
@@ -27,12 +32,6 @@ public class SubmitEvent extends OsbideEvent {
 	 */
 	public String getName() {
 		return Name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.Name = name;
 	}
 	/**
 	 * @return the solutionData
