@@ -1,14 +1,11 @@
 package josbide.wcf.soap.operations;
 
-public class IsValidKeyOperation extends OsbideOperation {
-
-	public IsValidKeyOperation() {
-		super();
-	}
+public class GetMostRecentSocialActivityOperation extends OsbideOperation {
 
 	@Override
 	protected void initializeOperation() {
-		this.requestName = "IsValidKey";
+		this.requestName = "GetMostRecentSocialActivity";
 		this.requestParameterNames = new String[] { "authToken" };
 	}
+
 }

@@ -4,6 +4,7 @@ import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.IConsole;
+import org.eclipse.ui.console.MessageConsoleStream;
 
 public class EclipseLogger {
 	
@@ -34,5 +35,4 @@ public class EclipseLogger {
 		String toPrint = who.getClass().getCanonicalName() +" : " + msg;
 		console.newMessageStream().println(toPrint);
 	}
-
 }

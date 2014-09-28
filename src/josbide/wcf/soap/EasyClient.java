@@ -1,126 +1,131 @@
 package josbide.wcf.soap;
 
+import java.io.StringWriter;
+import java.util.Deque;
+import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
 
+import javax.xml.soap.MessageFactory;
+import javax.xml.soap.MimeHeaders;
+import javax.xml.soap.SOAPBody;
+import javax.xml.soap.SOAPConnection;
+import javax.xml.soap.SOAPConnectionFactory;
+import javax.xml.soap.SOAPElement;
+import javax.xml.soap.SOAPEnvelope;
+import javax.xml.soap.SOAPException;
+import javax.xml.soap.SOAPMessage;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import josbide.util.EclipseLogger;
 import josbide.wcf.soap.operations.OsbideOperation;
 
-import org.reficio.ws.SoapContext;
-import org.reficio.ws.builder.SoapBuilder;
-import org.reficio.ws.builder.core.Wsdl;
+import org.w3c.dom.Document;
 
 public class EasyClient {
 
 	//Our WSDL file URL(DO NOT CHANGE THIS!):
-	public final String OSBIDE_WEBSERVICE_WSDL_ADRESS = "http://osbide.com/Services/OsbideWebService.svc?singleWsdl";
-	//Our binding scheme(DO NOT CHANGE THIS!):
-	public final String OSBIDE_WEBSERVICE_BINDING = "BasicHttpBinding_OsbideWebService";
+	public final String OSBIDE_WEBSERVICE_ENDPOINT_ADRESS = "http://osbide.com/Services/OsbideWebService.svc?singleWsdl";
 
-	//Privates:
-	private Wsdl webservice;
-	private SoapBuilder builder;
-	private ExecutorService threadpool;
-	private boolean ownThreadpool;
-
+	private SOAPConnectionFactory connectionFactory;
+	private MessageFactory messageFactory;
+	
 	public EasyClient() {
-		//Create thread pool, this is just a simple way to launch an callable in an seperate thread
-		ExecutorService threads = Executors.newFixedThreadPool(1);
-		//Create everything automatically:
-		this.init(this.OSBIDE_WEBSERVICE_WSDL_ADRESS, this.OSBIDE_WEBSERVICE_BINDING, threads);
-		this.ownThreadpool = true;
-	}
-
-	public EasyClient(ExecutorService threads) {
-		//Init Client:
-		this.init(this.OSBIDE_WEBSERVICE_WSDL_ADRESS, this.OSBIDE_WEBSERVICE_BINDING, threads);
-		this.ownThreadpool = false;
-	}
-
-	private void init(String wsdlAdress, String binding, ExecutorService threadpool) {
-
-		//Create a Soap Context for Configuration:
-		SoapContext ctx = SoapContext.builder().alwaysBuildHeaders(true).exampleContent(false)
-				.build();
-
-		//Initialize the web service
-		this.webservice = Wsdl.parse(wsdlAdress);
-		this.builder = webservice.binding().localPart(binding).find(ctx);
-
-		//Set threadpool:
-		this.threadpool = threadpool;
-	}
-
-	/**
-	 * Shutdown the client properly.
-	 */
-
-	public void shutdown() {
-		//Shutdown our own threadpool:
-		if (this.ownThreadpool) {
-			try {
-				//Initiate shutdown:
-				this.threadpool.shutdown();
-				//Wait for a maximum of 3 seconds:
-				this.threadpool.awaitTermination(3, TimeUnit.SECONDS);
-			} catch (InterruptedException e) {
-				//Just inform the user/developer, we'll take action in the finally block
-				System.err.println("Threadpool could not be shut down properly, forcing it!");
-			} finally {
-				//Force shutdown if necessary
-				if (!this.threadpool.isShutdown())
-					this.threadpool.shutdownNow();
-			}
+		try {
+			this.connectionFactory = SOAPConnectionFactory.newInstance();
+			this.messageFactory = MessageFactory.newInstance();
+		} catch (UnsupportedOperationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SOAPException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
-		//Delete our references:
-		this.threadpool = null;
-		this.builder = null;
-		this.webservice = null;
 	}
+	
+	public Document doRequest(OsbideOperation op){
+		try {
 
-	/**
-	 * Do a Call to the OSBIDE Web Service. This is a non-blocking function
-	 * 
-	 * @param op
-	 *            What operation to do
-	 * @return Future of the results
-	 */
+			SOAPConnection con = this.connectionFactory.createConnection();
 
-	public Future<List<SoapParameter>> doAsyncOperation(OsbideOperation op) {
-		//Create Callable:
-		Callable<List<SoapParameter>> callToService = new SoapCall(this.builder, op);
-		//Execute
-		Future<List<SoapParameter>> result = this.threadpool.submit(callToService);
-		//Deliver Future
-		return result;
+			SOAPMessage payload = this.generatePayload(op);
+			
+			SOAPMessage response = con.call(payload, this.OSBIDE_WEBSERVICE_ENDPOINT_ADRESS);
+			
+			return response.getSOAPPart().getEnvelope().getBody().extractContentAsDocument();
+			
+		} catch (SOAPException e) {
+			EclipseLogger.getInstance().log(this, "the SOAP Request went wrong: " + e.getMessage() );
+			e.printStackTrace();
+			return null;
+		}
 	}
-
-	/**
-	 * Do a Call to the OSBIDE Web Service. This is a blocking function
-	 * recieved
-	 * 
-	 * @param op
-	 *            The OsbideOperation to do
-	 * @return The result als ParameterList
-	 * @throws ExecutionException
-	 *             When the asyn operation failed via Exception. Possible:
-	 *             Exception, IllegalStateException,
-	 *             IllegalArgumentException, NoSuchElementException
-	 * @throws InterruptedException
-	 *             When the call was interrupted
-	 */
-
-	public List<SoapParameter> doSyncOperation(OsbideOperation op) throws ExecutionException,
-			InterruptedException {
-		//Do async call
-		Future<List<SoapParameter>> result = this.doAsyncOperation(op);
-		//Now wait for the result:
-		return result.get();
+	
+	private SOAPMessage generatePayload(OsbideOperation op){
+		try {
+			SOAPMessage payload = this.messageFactory.createMessage();
+			SOAPEnvelope envelope = payload.getSOAPPart().getEnvelope();
+			//Set Server URL for envelope:
+			// TODO: Do we need that?
+			
+			SOAPBody body = envelope.getBody();
+			Map<String, Object> params = op.getRequestParameters();
+			SOAPElement operationTag = body.addChildElement(op.getRequestName());
+			if(!params.isEmpty()){
+				//Now: Serializing the objects: There are two possibilities: String or EventLog
+				for(Map.Entry<String, Object> entry: params.entrySet()){
+					String name = entry.getKey();
+					SOAPElement nameTag = operationTag.addChildElement(name);
+					//Test if we have a null value
+					if(entry.getValue() == null)
+						continue;
+					//If not, serialize the values in there:
+					if(entry.getValue() instanceof String){
+						//Just put the String in there:
+						
+						nameTag.setValue((String) entry.getValue());
+						
+					}else if(entry.getValue() instanceof josbide.data.events.EventLog){
+						
+					}
+				}
+				
+			}
+			
+			MimeHeaders headers = payload.getMimeHeaders();
+			headers.addHeader("SOAPAction", op.getActionName());
+			payload.saveChanges();
+	        
+	        return payload;		
+			
+		} catch (SOAPException e) {
+			EclipseLogger.getInstance().log(this, "Generation of the payload went wrong: " + e.getMessage());
+			return null;
+		}
 	}
+	
+	//method to convert Document to String
+	public String getStringFromDocument(Document doc)
+	{
+	    try
+	    {
+	       DOMSource domSource = new DOMSource(doc);
+	       StringWriter writer = new StringWriter();
+	       StreamResult result = new StreamResult(writer);
+	       TransformerFactory tf = TransformerFactory.newInstance();
+	       Transformer transformer = tf.newTransformer();
+	       transformer.transform(domSource, result);
+	       return writer.toString();
+	    }
+	    catch(TransformerException ex)
+	    {
+	       ex.printStackTrace();
+	       return null;
+	    }
+	} 
 
 }

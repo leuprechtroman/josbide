@@ -1,7 +1,8 @@
 package josbide.tracking;
 
-import java.util.Observable;
-
-public class EclipseEventTracker extends Observable {
+public interface EclipseEventTracker{
+	
+	public abstract void enable();
+	public abstract void disable();
 
 }
