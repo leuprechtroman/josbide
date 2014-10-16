@@ -14,10 +14,19 @@ import org.osgi.service.prefs.Preferences;
 
 public class LocalDataStore {
 	
+	private static LocalDataStore instance = null;
+	
 	private Preferences prefs;
 	
 	public LocalDataStore(){
 		this.prefs = ConfigurationScope.INSTANCE.getNode("josbide");
+	}
+	
+	public static synchronized LocalDataStore getInstance(){
+		if(LocalDataStore.instance == null)
+			LocalDataStore.instance = new LocalDataStore();
+		
+		return LocalDataStore.instance;
 	}
 	
 	public void setData(String key, String value){

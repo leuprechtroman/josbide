@@ -6,4 +6,83 @@
       <startup
             class="josbide.Activator"></startup>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="josbide.preferences.JOsbidePreferencePage"
+            id="josbide.preferences.JOsbidePreferencePage"
+            name="Osbide">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="josbide.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+         <menuContribution
+         locationURI=
+         "popup:org.eclipse.jdt.ui.PackageExplorer">
+         <command
+               commandId="josbide.setDefaultProject"
+               label="Select as Osbide Project"
+               mnemonic="M1+P"
+               tooltip="Set this project as default Osbide Project that is tracked">
+               <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <adapt
+                           type="org.eclipse.jdt.core.IJavaProject">
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+         <menuContribution
+         locationURI=
+         "popup:org.eclipse.jdt.ui.PackageExplorer">
+         <command
+               commandId="josbide.HandInAssignment"
+               label="Hand in as Osbide Assignment"
+               mnemonic="M1+P"
+               tooltip="Hand this project in as Osbide Assignment">
+               <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <adapt
+                           type="org.eclipse.jdt.core.IJavaProject">
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="josbide.handlers.DefaultProjectHandler"
+            id="josbide.setDefaultProject"
+            name="Set a default Osbide Project">
+      </command>
+      <command
+            defaultHandler="josbide.handlers.HandInAssignmentHandler"
+            id="josbide.HandInAssignment"
+            name="Hand in Osbide Assignment">
+      </command>
+   </extension>
 </plugin>

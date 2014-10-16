@@ -1,5 +1,6 @@
 package josbide.data;
 
+
 public class StackFrameVariable {
 	private int Id;
 	private String Name;

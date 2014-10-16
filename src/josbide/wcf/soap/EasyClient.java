@@ -1,5 +1,6 @@
 package josbide.wcf.soap;
 
+import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Deque;
 import java.util.Iterator;
@@ -47,12 +48,14 @@ public class EasyClient {
 		}
 	}
 	
-	public Document doRequest(OsbideOperation op){
+	public synchronized Document doRequest(OsbideOperation op){
 		try {
 
 			SOAPConnection con = this.connectionFactory.createConnection();
 
 			SOAPMessage payload = this.generatePayload(op);
+			
+			EclipseLogger.getInstance().logDebug("Sending request: "+op.getActionName());
 			
 			SOAPMessage response = con.call(payload, this.OSBIDE_WEBSERVICE_ENDPOINT_ADRESS);
 			
@@ -77,27 +80,34 @@ public class EasyClient {
 			SOAPElement operationTag = body.addChildElement(op.getRequestName());
 			if(!params.isEmpty()){
 				//Now: Serializing the objects: There are two possibilities: String or EventLog
-				for(Map.Entry<String, Object> entry: params.entrySet()){
-					String name = entry.getKey();
+				for (int i = 0; i < op.getRequestParameterNames().length; i++) {
+					String name = op.getRequestParameterNames()[i];
+					Object value = params.get(name);
 					SOAPElement nameTag = operationTag.addChildElement(name);
 					//Test if we have a null value
-					if(entry.getValue() == null)
+					if(value == null)
 						continue;
 					//If not, serialize the values in there:
-					if(entry.getValue() instanceof String){
+					if(value instanceof String){
 						//Just put the String in there:
 						
-						nameTag.setValue((String) entry.getValue());
+						nameTag.setValue((String) value);
 						
-					}else if(entry.getValue() instanceof josbide.data.events.EventLog){
+					}else if(value instanceof josbide.data.events.EventLog){
 						
 					}
+					
+				}
+				
+				for(Map.Entry<String, Object> entry: params.entrySet()){
+					
 				}
 				
 			}
 			
 			MimeHeaders headers = payload.getMimeHeaders();
 			headers.addHeader("SOAPAction", op.getActionName());
+			
 			payload.saveChanges();
 	        
 	        return payload;		

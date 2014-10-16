@@ -1,5 +1,8 @@
 package josbide.util;
 
+import josbide.Activator;
+import josbide.preferences.PreferenceConstants;
+
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
@@ -34,5 +37,16 @@ public class EclipseLogger {
 	public synchronized void log(Object who, String msg){
 		String toPrint = who.getClass().getCanonicalName() +" : " + msg;
 		console.newMessageStream().println(toPrint);
+	}
+	
+	public synchronized void logInfo(String msg){
+		String toPrint = "Info: " + msg;
+		console.newMessageStream().println(toPrint);
+	}
+	
+	public synchronized void logDebug(String msg){
+		if(Activator.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.P_DEBUGSETTINGS)){
+			console.newMessageStream().println(msg);
+		}
 	}
 }

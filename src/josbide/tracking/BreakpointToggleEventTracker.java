@@ -2,7 +2,9 @@ package josbide.tracking;
 
 import java.util.Date;
 
+import josbide.Activator;
 import josbide.data.BreakPoint;
+import josbide.preferences.PreferenceConstants;
 import josbide.util.EclipseLogger;
 
 import org.eclipse.core.resources.IMarkerDelta;
@@ -80,6 +82,14 @@ public class BreakpointToggleEventTracker implements EclipseEventTracker, IBreak
 		} catch (CoreException e) {
 			EclipseLogger.getInstance().log(this, "Breakpoint Condition could not be accessed: " + e.getMessage());
 		}
+		
+		EclipseLogger.getInstance().logDebug("Breakpoint Event created:");
+		EclipseLogger.getInstance().logDebug("Breakpoint condition: " + payload.getCondition());
+		EclipseLogger.getInstance().logDebug("Breakpoint file: " + payload.getFile());
+		EclipseLogger.getInstance().logDebug("Breakpoint line: " + payload.getFileLine());
+		
+		
+		
 		return payload;	
 	}
 

@@ -1,4 +1,5 @@
 package josbide.data;
+
 import josbide.data.events.BuildEvent;
 
 public class BuildEventErrorListItem {

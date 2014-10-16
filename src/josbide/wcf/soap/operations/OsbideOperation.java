@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import josbide.wcf.soap.SoapParameter;
-
 public abstract class OsbideOperation {
 
 	//Prefix for all actions(DO NOT CHANGE OR OVERWRITE)

@@ -1,139 +1,111 @@
 package josbide.data;
 
-import josbide.data.events.BuildEvent;
-
 public class ErrorListItem {
 	
-	private String errorName;
-	private int column;
-	private String description;
-	private String file;
-	private int id;
-	private int line;
-	private String project;
-	private boolean critical;
-	private BuildEvent buildEvent;
-	private CodeDocument document;
-	
-	
+	private String ErrorName;
+	private int Column;
+	private String Description;
+	private String File;
+	private int Id;
+	private int Line;
+	private String Project;
+	private boolean Critical;
 	/**
 	 * @return the errorName
 	 */
 	public String getErrorName() {
-		return errorName;
+		return ErrorName;
 	}
 	/**
 	 * @param errorName the errorName to set
 	 */
 	public void setErrorName(String errorName) {
-		this.errorName = errorName;
+		ErrorName = errorName;
 	}
 	/**
 	 * @return the column
 	 */
 	public int getColumn() {
-		return column;
+		return Column;
 	}
 	/**
 	 * @param column the column to set
 	 */
 	public void setColumn(int column) {
-		this.column = column;
+		Column = column;
 	}
 	/**
 	 * @return the description
 	 */
 	public String getDescription() {
-		return description;
+		return Description;
 	}
 	/**
 	 * @param description the description to set
 	 */
 	public void setDescription(String description) {
-		this.description = description;
+		Description = description;
 	}
 	/**
 	 * @return the file
 	 */
 	public String getFile() {
-		return file;
+		return File;
 	}
 	/**
 	 * @param file the file to set
 	 */
 	public void setFile(String file) {
-		this.file = file;
+		File = file;
 	}
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
+		return Id;
 	}
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		this.id = id;
+		Id = id;
 	}
 	/**
 	 * @return the line
 	 */
 	public int getLine() {
-		return line;
+		return Line;
 	}
 	/**
 	 * @param line the line to set
 	 */
 	public void setLine(int line) {
-		this.line = line;
+		Line = line;
 	}
 	/**
 	 * @return the project
 	 */
 	public String getProject() {
-		return project;
+		return Project;
 	}
 	/**
 	 * @param project the project to set
 	 */
 	public void setProject(String project) {
-		this.project = project;
+		Project = project;
 	}
 	/**
 	 * @return the critical
 	 */
 	public boolean isCritical() {
-		return critical;
+		return Critical;
 	}
 	/**
 	 * @param critical the critical to set
 	 */
 	public void setCritical(boolean critical) {
-		this.critical = critical;
+		Critical = critical;
 	}
-	/**
-	 * @return the buildEvent
-	 */
-	public BuildEvent getBuildEvent() {
-		return buildEvent;
-	}
-	/**
-	 * @param buildEvent the buildEvent to set
-	 */
-	public void setBuildEvent(BuildEvent buildEvent) {
-		this.buildEvent = buildEvent;
-	}
-	/**
-	 * @return the document
-	 */
-	public CodeDocument getDocument() {
-		return document;
-	}
-	/**
-	 * @param document the document to set
-	 */
-	public void setDocument(CodeDocument document) {
-		this.document = document;
-	}
+	
+
 }

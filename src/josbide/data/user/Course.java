@@ -8,6 +8,7 @@ public class Course {
 	
 	private int id;
 	private School school;
+	private int schoolId;
 	private String name;
 	private String prefix;
 	private int number;
@@ -163,4 +164,28 @@ public class Course {
 	public void setAssignments(List<Assignment> assignments) {
 		this.assignments = assignments;
 	}
+	/**
+	 * @return the schoolId
+	 */
+	public int getSchoolId() {
+		return schoolId;
+	}
+	/**
+	 * @param schoolId the schoolId to set
+	 */
+	public void setSchoolId(int schoolId) {
+		this.schoolId = schoolId;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Course [id=" + id + ", schoolId=" + schoolId + ", name=" + name + ", prefix="
+				+ prefix + ", number=" + number + ", description=" + description + ", Year=" + Year
+				+ ", Season=" + Season + ", requiresApprovalBeforeAdmission="
+				+ requiresApprovalBeforeAdmission + ", isDeleted=" + isDeleted + "]";
+	}
+	
+	
 }

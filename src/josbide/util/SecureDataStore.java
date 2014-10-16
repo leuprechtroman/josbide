@@ -15,10 +15,19 @@ import org.eclipse.equinox.security.storage.StorageException;
 
 public class SecureDataStore {
 	
+	private static SecureDataStore instance = null;
+	
 	private ISecurePreferences prefs;
 	
 	public SecureDataStore(){
 		this.prefs = SecurePreferencesFactory.getDefault().node("josbide");
+	}
+	
+	public static synchronized SecureDataStore getInstance(){
+		if(SecureDataStore.instance == null)
+			SecureDataStore.instance = new SecureDataStore();
+		
+		return SecureDataStore.instance;
 	}
 	
 	public void setData(String key, String value){

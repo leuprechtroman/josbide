@@ -2,6 +2,7 @@ package josbide.data.events;
 
 import josbide.data.Assignment;
 
+
 public class SubmitEvent extends OsbideEvent {
 	
 	private Assignment Assignment;
